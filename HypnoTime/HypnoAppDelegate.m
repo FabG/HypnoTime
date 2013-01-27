@@ -15,6 +15,24 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Create the tabBarController
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    // Create instances of the view controllers and add them to the tab bar controller
+    UIViewController *vc1 = [[HypnosisViewController alloc] init];
+    UIViewController *vc2 = [[CurrentTimeViewController alloc] init];
+    
+    // Make an array containing the two view controllers
+    NSArray *viewControllers = [NSArray arrayWithObjects:vc1, vc2, nil];
+    
+    // Attach them to the tab bar controller
+    [tabBarController setViewControllers:viewControllers];
+    
+    // Set tabBarController as rootViewController of window
+    [[self window] setRootViewController:tabBarController];
+    
+    // Show the window
     [self.window makeKeyAndVisible];
     return YES;
 }

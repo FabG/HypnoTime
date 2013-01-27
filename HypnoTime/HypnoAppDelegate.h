@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HypnosisViewController.h"
+#import "CurrentTimeViewController.h"
 
 @interface HypnoAppDelegate : UIResponder <UIApplicationDelegate>
 
