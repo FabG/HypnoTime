@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CurrentTimeViewController : UIViewController
+@interface CurrentTimeViewController : UIViewController 
 {
     IBOutlet UILabel *timeLabel;
 }

@@ -9,6 +9,7 @@
 #import "HypnosisView.h"
 
 @implementation HypnosisView
+@synthesize xShift, yShift;
 
 // Override the drawRect: method
 - (void)drawRect:(CGRect)rect
@@ -36,6 +37,10 @@
     // Draw concentric circles from the outside in
     for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20)
     {
+        // Accelerometer - offset the center using the xShift and yShift instance variables
+        center.x += xShift;
+        center.y += yShift;
+        
         CGContextAddArc(context, center.x, center.y,
                         currentRadius, 0.0, M_PI * 2.0, YES);
         CGContextStrokePath(context);

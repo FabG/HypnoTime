@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HypnosisViewController : UIViewController
+@interface HypnosisViewController : UIViewController <UIAccelerometerDelegate>
 
 @end

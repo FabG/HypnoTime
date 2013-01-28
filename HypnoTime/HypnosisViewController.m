@@ -60,5 +60,50 @@
 
 }
 
+// ACCELEROMETER Methods
+// override the method viewWillAppear: to get a pointer to the
+// accelerometer and set its update interval and delegate.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"Monitoring accelerometer");
+    UIAccelerometer *a = [UIAccelerometer sharedAccelerometer];
+    
+    // Receive updates every 1/10th of a second.
+    [a setUpdateInterval:0.1];
+    [a setDelegate:self];
+}
+
+// When the HypnosisViewController’s view is moved off screen, the accelerometer updates become
+// unnecessary, and you should set the accelerometer’s delegate to nil. Setting the UIAccelerometer
+// Getting Accelerometer Data ￼￼￼delegate to nil stops the updates to the controller and powers down
+// the accelerometer hardware to conserve battery life.
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[UIAccelerometer sharedAccelerometer] setDelegate:nil];
+}
+
+// Implementation of the UIAccelerometer delegate method, accelerometer:didAccelerate:.
+// set xShift and yShift and redraw the view
+- (void)accelerometer:(UIAccelerometer *)meter
+        didAccelerate:(UIAcceleration *)accel
+{
+    NSLog(@"%f, %f, %f", [accel x], [accel y], [accel z]);
+    
+    HypnosisView *hv = (HypnosisView *)[self view];
+    // Smoothen Data
+    float xShift = [hv xShift] * 0.8 + [accel x] * 2.0;
+    float yShift = [hv yShift] * 0.8 - [accel y] * 2.0;
+    [hv setXShift:xShift];
+    [hv setYShift:yShift];
+    
+    //[hv setXShift:10.0 * [accel x]];
+    //[hv setYShift:-10.0 * [accel y]];
+    
+    // Redraw the view
+    [hv setNeedsDisplay];
+}
 
 @end
