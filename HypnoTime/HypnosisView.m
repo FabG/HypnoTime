@@ -32,7 +32,10 @@
     CGContextSetLineWidth(context, 10);
     
     // Set the stroke color to light gray
-    [[UIColor lightGrayColor] setStroke];
+    //[[UIColor lightGrayColor] setStroke];
+    
+    // Set the stroke color to the current stripeColor
+    [stripeColor setStroke];
     
     // Draw concentric circles from the outside in
     for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20)
@@ -71,6 +74,52 @@
     [text drawInRect:textRect
             withFont:font];
     
+}
+
+// designated initializer for UIView is initWithFrame
+// initialize with stripecolor
+- (id)initWithFrame:(CGRect)r
+{
+    self = [super initWithFrame:r];
+    if (self) {
+        // Notice we explicitly retain the UIColor instance
+        // returned by the convenience method lightGrayColor,
+        // because it is autoreleased and we need to keep it around
+        // so we can use it in drawRect:.
+        stripeColor = [UIColor lightGrayColor];
+    }
+    return self;
+}
+
+// Shaking
+// Override motionBegan:withEvent: to change the color and redraw the view
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    // Shake is the only kind of motion for now, but we should (for future compatibility)
+    // check the motion type.
+    if (motion == UIEventSubtypeMotionShake) {
+        NSLog(@"shake started");
+        float r, g, b;
+        // Notice the trailing .0 on the dividends... this is necessary
+        // to tell the compiler the result is a floating point number.. otherwise,
+        // you will always get 0
+        r = random() % 256 / 256.0;
+        g = random() % 256 / 256.0;
+        b = random() % 256 / 256.0;
+        stripeColor = [UIColor colorWithRed:r
+                                      green:g
+                                       blue:b
+                                      alpha:1];
+        [self setNeedsDisplay];
+    }
+}
+
+// There’s one more important detail: the window’s firstResponder is the object that gets
+// sent all of the motion events. Right now, the first responder is not HypnosisView,
+// so changing this
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 @end

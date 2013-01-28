@@ -10,7 +10,8 @@
 
 @interface HypnosisView : UIView
 {
-    float xShift, yShift;
+    UIColor *stripeColor; // color change when shaking
+    float xShift, yShift; // accelerometer
 }
 @property (nonatomic, assign) float xShift;
 @property (nonatomic, assign) float yShift;

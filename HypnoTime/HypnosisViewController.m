@@ -73,6 +73,9 @@
     // Receive updates every 1/10th of a second.
     [a setUpdateInterval:0.1];
     [a setDelegate:self];
+    
+    // for the shaking feature - making it first responder so tht it receives the motion events
+    [[self view] becomeFirstResponder];
 }
 
 // When the HypnosisViewController’s view is moved off screen, the accelerometer updates become
