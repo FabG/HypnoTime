@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import<QuartzCore/QuartzCore.h>
 
 @interface HypnosisView : UIView
 {
     UIColor *stripeColor; // color change when shaking
     float xShift, yShift; // accelerometer
+    CALayer *boxLayer;
 }
 @property (nonatomic, assign) float xShift;
 @property (nonatomic, assign) float yShift;

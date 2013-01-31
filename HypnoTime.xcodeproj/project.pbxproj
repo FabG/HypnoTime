@@ -14,6 +14,7 @@
 		1B02C2AD16B74CDA007D754C /* Hypno_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B02C2AC16B74CDA007D754C /* Hypno_72x72.png */; };
 		1B02C2AF16B74CE8007D754C /* Hypno_144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B02C2AE16B74CE8007D754C /* Hypno_144x144.png */; };
 		1B0775D516B5B84C002CD95A /* CurrentTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0775D416B5B84C002CD95A /* CurrentTimeViewController.xib */; };
+		1B3195E416B9FE1600D49687 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3195E316B9FE1600D49687 /* QuartzCore.framework */; };
 		1BB7D52D16B5B10200ABFCFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB7D52C16B5B10200ABFCFE /* UIKit.framework */; };
 		1BB7D52F16B5B10200ABFCFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB7D52E16B5B10200ABFCFE /* Foundation.framework */; };
 		1BB7D53116B5B10200ABFCFE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB7D53016B5B10200ABFCFE /* CoreGraphics.framework */; };
@@ -40,6 +41,7 @@
 		1B02C2AC16B74CDA007D754C /* Hypno_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hypno_72x72.png; sourceTree = "<group>"; };
 		1B02C2AE16B74CE8007D754C /* Hypno_144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hypno_144x144.png; sourceTree = "<group>"; };
 		1B0775D416B5B84C002CD95A /* CurrentTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CurrentTimeViewController.xib; path = ../CurrentTimeViewController.xib; sourceTree = "<group>"; };
+		1B3195E316B9FE1600D49687 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1BB7D52816B5B10200ABFCFE /* HypnoTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnoTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB7D52C16B5B10200ABFCFE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1BB7D52E16B5B10200ABFCFE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3195E416B9FE1600D49687 /* QuartzCore.framework in Frameworks */,
 				1BB7D52D16B5B10200ABFCFE /* UIKit.framework in Frameworks */,
 				1BB7D52F16B5B10200ABFCFE /* Foundation.framework in Frameworks */,
 				1BB7D53116B5B10200ABFCFE /* CoreGraphics.framework in Frameworks */,
@@ -82,6 +85,7 @@
 		1BB7D51D16B5B10200ABFCFE = {
 			isa = PBXGroup;
 			children = (
+				1B3195E316B9FE1600D49687 /* QuartzCore.framework */,
 				1B02C2AE16B74CE8007D754C /* Hypno_144x144.png */,
 				1B02C2AC16B74CDA007D754C /* Hypno_72x72.png */,
 				1B02C2A616B74B10007D754C /* Default@2x.png */,
