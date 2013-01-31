@@ -158,4 +158,29 @@
     return YES;
 }
 
+// Core animation Layer
+// make the boxLayer moves where the user starts a touch
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *t = [touches anyObject];
+    CGPoint p = [t locationInView:self];
+    [boxLayer setPosition:p];
+}
+
+// If the user drags rather than taps, let's have the layer follow the user's finger
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *t = [touches anyObject];
+    CGPoint p = [t locationInView:self];
+
+    // disable animation of the layer's change in position to make the dragging feel more responsive
+    
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    
+    [boxLayer setPosition:p];
+    
+    [CATransaction commit];
+}
+
 @end
